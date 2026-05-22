@@ -5,7 +5,7 @@ error_log('REST FILE LOADED');
 if (!defined('ABSPATH')) exit;
 
 /**
- * Register REST Route
+ * Register REST API Route
  */
 add_action('rest_api_init', function () {
 
@@ -17,7 +17,7 @@ add_action('rest_api_init', function () {
 });
 
 /**
- * REST Callback
+ * REST API Callback
  */
 function profolio_rest_get_projects(WP_REST_Request $request) {
 
