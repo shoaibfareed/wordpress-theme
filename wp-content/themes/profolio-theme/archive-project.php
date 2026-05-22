@@ -9,8 +9,10 @@
             <p class="page-subtitle">A collection of work I’ve built recently.</p>
         </div>
 
-        <!-- FILTER (optional UI ready) -->
+        <!-- FILTERS -->
         <form method="GET" class="project-filter">
+
+            <?php wp_nonce_field('project_filter_action', 'project_filter_nonce'); ?>
 
             <input type="date" name="start_date"
                 value="<?php echo esc_attr($_GET['start_date'] ?? ''); ?>">
@@ -61,6 +63,18 @@
         }
 
         $query = new WP_Query($args);
+
+
+        $start_date = '';
+        $end_date   = '';
+
+        if (
+            isset($_GET['project_filter_nonce']) &&
+            wp_verify_nonce($_GET['project_filter_nonce'], 'project_filter_action')
+        ) {
+            $start_date = sanitize_text_field($_GET['start_date'] ?? '');
+            $end_date   = sanitize_text_field($_GET['end_date'] ?? '');
+        }
 
         ?>
 
