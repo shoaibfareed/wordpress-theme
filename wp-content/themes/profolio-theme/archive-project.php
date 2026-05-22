@@ -36,7 +36,9 @@
         // CUSTOM QUERY (FILTER ENABLED)
         // -----------------------------
 
-        $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+        $paged = max(1, get_query_var('paged'), get_query_var('page'));
+
+        global $wp;
 
         $args = [
             'post_type'      => 'project',
@@ -80,11 +82,11 @@
 
         ?>
 
-        <?php if (have_posts()) : ?>
+        <?php if ($query->have_posts()) : ?>
 
             <div class="projects-grid">
 
-                <?php while (have_posts()) : the_post();
+                 <?php while ($query->have_posts()) : $query->the_post();
 
                     $start = get_post_meta(get_the_ID(), '_start_date', true);
                     $end   = get_post_meta(get_the_ID(), '_end_date', true);
@@ -137,6 +139,21 @@
                 <?php endwhile; ?>
 
             </div>
+
+            <div class="pagination">
+                    <?php
+                         echo paginate_links([
+                            'base'      => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+                            'format'    => '?paged=%#%',
+                            'current'   => $paged,
+                            'total'     => $query->max_num_pages,
+                            'prev_text' => '« Prev',
+                            'next_text' => 'Next »',
+                        ]);
+                    ?>
+                </div>
+
+            <?php wp_reset_postdata(); ?>
 
         <?php else : ?>
 
