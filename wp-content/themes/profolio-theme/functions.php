@@ -44,6 +44,8 @@ add_action('pre_get_posts', function ($query) {
         return;
     }
 
+    $query->set('posts_per_page', 6);
+
     $meta_query = [];
 
     $start = isset($_GET['start_date']) ? sanitize_text_field($_GET['start_date']) : '';
@@ -62,4 +64,18 @@ add_action('pre_get_posts', function ($query) {
     if (!empty($meta_query)) {
         $query->set('meta_query', $meta_query);
     }
+});
+
+
+add_filter('request', function ($vars) {
+
+    if (isset($_GET['start_date'])) {
+        $vars['start_date'] = sanitize_text_field($_GET['start_date']);
+    }
+
+    if (isset($_GET['end_date'])) {
+        $vars['end_date'] = sanitize_text_field($_GET['end_date']);
+    }
+
+    return $vars;
 });
