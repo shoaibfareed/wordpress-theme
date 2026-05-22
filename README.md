@@ -43,7 +43,7 @@ Each Project includes:
 
 Implemented using native WordPress meta boxes with:
 - Nonce protection
-- Capability checks
+- Capability checks // as in this case we have public api so dont required the Capabilitys check
 - Input sanitization
 - Secure data storage
 

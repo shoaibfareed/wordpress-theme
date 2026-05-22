@@ -2,10 +2,9 @@
 
 function profolio_theme_setup() {
 
-    load_theme_textdomain('profolio', get_template_directory() . '/languages');
-
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
+
     add_theme_support('html5', [
         'search-form',
         'comment-form',
@@ -14,11 +13,10 @@ function profolio_theme_setup() {
     ]);
 
     register_nav_menus([
-        'primary_menu' => __('Primary Menu', 'profolio'),
+        'primary_menu' => __('Primary Menu', 'profolio-theme'),
     ]);
 }
 add_action('after_setup_theme', 'profolio_theme_setup');
-
 
 function profolio_assets() {
 

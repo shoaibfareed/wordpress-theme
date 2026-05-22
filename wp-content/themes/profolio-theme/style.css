@@ -2,6 +2,7 @@
 Theme Name: Profolio Theme
 Author: Shoaib Fareed
 Version: 1.0
+Text Domain: profolio-theme
 */
 
 /* =========================
@@ -323,4 +324,62 @@ body {
     .projects-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* =========================
+   DROPDOWN MENU
+========================= */
+
+.nav-list li {
+    position: relative;
+}
+
+/* SUBMENU */
+.nav-list .sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #121826;
+    min-width: 220px;
+    padding: 10px 0;
+    list-style: none;
+    border-radius: 10px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+
+    transition: 0.3s ease;
+    z-index: 999;
+}
+
+/* SHOW ON HOVER */
+.nav-list li:hover > .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* SUBMENU LINKS */
+.nav-list .sub-menu li {
+    width: 100%;
+}
+
+.nav-list .sub-menu a {
+    display: block;
+    padding: 12px 18px;
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-list .sub-menu a:hover {
+    background: rgba(124, 92, 255, 0.15);
+    color: #fff;
+}
+
+/* SECOND LEVEL */
+.nav-list .sub-menu .sub-menu {
+    left: 100%;
+    top: 0;
 }

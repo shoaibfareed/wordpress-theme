@@ -27,14 +27,14 @@
         <!-- NAVIGATION -->
         <nav class="main-nav" id="mainNav">
 
-            <?php
-            wp_nav_menu([
-                'theme_location' => 'primary',
-                'container'      => false,
-                'menu_class'     => 'nav-list'
-            ]);
+           <?php
+                wp_nav_menu([
+                    'theme_location' => 'primary',
+                    'container'      => false,
+                    'menu_class'     => 'nav-list',
+                    'depth'          => 3,
+                ]);
             ?>
-
         </nav>
 
         <!-- CTA BUTTON -->

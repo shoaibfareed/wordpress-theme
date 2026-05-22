@@ -9,12 +9,6 @@
 
         <div>
             <h4>Quick Links</h4>
-            <?php
-                wp_nav_menu([
-                    'theme_location' => 'primary',
-                    'container' => false,
-                ]);
-            ?>
         </div>
 
         <div>

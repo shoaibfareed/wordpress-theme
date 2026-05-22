@@ -5,12 +5,14 @@
     <div class="container">
 
         <div class="projects-header">
-            <h1 class="page-title">My Projects</h1>
+            <h1 class="page-title"> <?php echo esc_html__('My Projects', 'profolio-theme'); ?></h1>
             <p class="page-subtitle">A collection of work I’ve built recently.</p>
         </div>
 
-        <!-- FILTER (optional UI ready) -->
+        <!-- FILTERS -->
         <form method="GET" class="project-filter">
+
+            <?php wp_nonce_field('project_filter_action', 'project_filter_nonce'); ?>
 
             <input type="date" name="start_date"
                 value="<?php echo esc_attr($_GET['start_date'] ?? ''); ?>">
@@ -18,10 +20,12 @@
             <input type="date" name="end_date"
                 value="<?php echo esc_attr($_GET['end_date'] ?? ''); ?>">
 
-            <button type="submit">Filter</button>
+            <button>
+                <?php echo esc_html__('Filter', 'profolio-theme'); ?>
+            </button>
 
             <a href="<?php echo esc_url(get_post_type_archive_link('project')); ?>">
-                Reset
+                <?php echo esc_html__('Reset', 'profolio-theme'); ?> 
             </a>
 
         </form>
@@ -61,6 +65,18 @@
         }
 
         $query = new WP_Query($args);
+
+
+        $start_date = '';
+        $end_date   = '';
+
+        if (
+            isset($_GET['project_filter_nonce']) &&
+            wp_verify_nonce($_GET['project_filter_nonce'], 'project_filter_action')
+        ) {
+            $start_date = sanitize_text_field($_GET['start_date'] ?? '');
+            $end_date   = sanitize_text_field($_GET['end_date'] ?? '');
+        }
 
         ?>
 
