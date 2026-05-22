@@ -5,7 +5,7 @@
     <div class="container">
 
         <div class="projects-header">
-            <h1 class="page-title">My Projects</h1>
+            <h1 class="page-title"> <?php echo esc_html__('My Projects', 'profolio-theme'); ?></h1>
             <p class="page-subtitle">A collection of work I’ve built recently.</p>
         </div>
 
@@ -20,10 +20,12 @@
             <input type="date" name="end_date"
                 value="<?php echo esc_attr($_GET['end_date'] ?? ''); ?>">
 
-            <button type="submit">Filter</button>
+            <button>
+                <?php echo esc_html__('Filter', 'profolio-theme'); ?>
+            </button>
 
             <a href="<?php echo esc_url(get_post_type_archive_link('project')); ?>">
-                Reset
+                <?php echo esc_html__('Reset', 'profolio-theme'); ?> 
             </a>
 
         </form>
