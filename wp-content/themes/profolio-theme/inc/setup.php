@@ -1,5 +1,10 @@
 <?php
 
+
+/**
+ * Theme Setup
+ */
+
 function profolio_theme_setup() {
 
     add_theme_support('title-tag');
@@ -17,6 +22,10 @@ function profolio_theme_setup() {
     ]);
 }
 add_action('after_setup_theme', 'profolio_theme_setup');
+
+/**
+ * Theme Assets Enqueus
+ */
 
 function profolio_assets() {
 

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Adding Meta Box To Project Post Time
+ */
+
 function profolio_project_meta_box() {
 
     add_meta_box(
@@ -9,6 +13,7 @@ function profolio_project_meta_box() {
         'project'
     );
 }
+
 add_action('add_meta_boxes', 'profolio_project_meta_box');
 
 function profolio_project_meta_callback($post) {
@@ -18,6 +23,7 @@ function profolio_project_meta_callback($post) {
     $start = get_post_meta($post->ID, '_start_date', true);
     $end   = get_post_meta($post->ID, '_end_date', true);
     $url   = get_post_meta($post->ID, '_project_url', true);
+    $description   = get_post_meta($post->ID, '_project_description', true);
 
     ?>
     <p>
@@ -34,8 +40,18 @@ function profolio_project_meta_callback($post) {
         <label>Project URL</label>
         <input type="url" name="project_url" value="<?php echo esc_url($url); ?>">
     </p>
+
+    <p>
+        <label>Project Description</label>
+        <textarea name="project_description"><?php echo esc_textarea($description); ?></textarea>
+    </p>
     <?php
 }
+
+
+/**
+ * Save Project Meta
+ */
 
 function profolio_save_project_meta($post_id) {
 
@@ -53,9 +69,13 @@ function profolio_save_project_meta($post_id) {
     $start = isset($_POST['start_date']) ? sanitize_text_field($_POST['start_date']) : '';
     $end   = isset($_POST['end_date']) ? sanitize_text_field($_POST['end_date']) : '';
     $url   = isset($_POST['project_url']) ? esc_url_raw($_POST['project_url']) : '';
+    $description = isset($_POST['project_description'])
+    ? sanitize_text_field($_POST['project_description'])
+    : '';
 
     update_post_meta($post_id, '_start_date', $start);
     update_post_meta($post_id, '_end_date', $end);
     update_post_meta($post_id, '_project_url', $url);
+    update_post_meta($post_id, '_project_description', $description);
 }
 add_action('save_post_project', 'profolio_save_project_meta');

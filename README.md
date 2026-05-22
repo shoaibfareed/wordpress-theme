@@ -98,6 +98,24 @@ Custom endpoint:
 
 ---
 
+
+### What i used to build
+
+## Custom
+- Custom Coding and logic building for the theme structure
+- Registering CPT and Meta Inforamtion and saving Data
+- Templates Creation and Listing and Detail Pages
+- Rest Api creation and response design
+- Language Setup
+
+## Help from external Resource
+
+I only Used the ChatGpt for some errors resolution
+- Language File Structure .mo and .po as i was using portfolio-theme-fr_FR.mo and portfolio-theme-fr_FR.po
+- There was issue with Filteration and then took the help to pre_get_posts for the filter in function.php
+
+
+
 ## 🐳 Local Development Setup (Docker)
 
 ### 1. Start containers
