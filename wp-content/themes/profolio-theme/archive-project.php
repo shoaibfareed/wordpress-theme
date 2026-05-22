@@ -89,6 +89,7 @@
                     $start = get_post_meta(get_the_ID(), '_start_date', true);
                     $end   = get_post_meta(get_the_ID(), '_end_date', true);
                     $url   = get_post_meta(get_the_ID(), '_project_url', true);
+                    $description  = get_post_meta(get_the_ID(), '_project_description', true);
                 ?>
 
                     <article class="project-card">
@@ -107,6 +108,12 @@
 
                             <div class="project-meta">
                                 <span>📅 <?php echo esc_html($start); ?> → <?php echo esc_html($end); ?></span>
+                            </div>
+
+                            <div class="project-description">
+                                <p>
+                                    <?php echo esc_html( wp_trim_words($description, 20, '...') ); ?>
+                                </p>
                             </div>
 
                             <div class="project-actions">
