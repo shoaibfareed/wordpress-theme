@@ -1,0 +1,20 @@
+{
+  "name": "profolio/theme",
+  "description": "A modular WordPress portfolio theme with PSR-4 architecture",
+  "type": "wordpress-theme",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Shoaib Fareed",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Profolio\\": "inc/"
+    }
+  }
+}

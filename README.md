@@ -125,3 +125,9 @@ I only Used the ChatGpt for some errors resolution
 
 ```bash
 docker compose up -d
+```
+
+### Composer
+After Setup Run
+
+```composer dump-autoload``` inside the theme folder to generate the auto load dependencies
