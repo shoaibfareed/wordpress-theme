@@ -6,7 +6,7 @@ A custom WordPress theme built from scratch demonstrating advanced WordPress dev
 
 ## 🚀 Tech Stack
 
-- WordPress 6.x
+- WordPress 7.0
 - PHP 8.1+
 - MySQL 8
 - Docker (Local Development Environment)
