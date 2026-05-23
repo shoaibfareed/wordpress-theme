@@ -1,6 +1,6 @@
 # Profolio WordPress Theme (Custom Development Project)
 
-A custom WordPress theme built from scratch (based on Underscores starter theme) demonstrating advanced WordPress development skills including Custom Post Types, REST API integration, secure meta handling, and responsive UI.
+A custom WordPress theme built from scratch demonstrating advanced WordPress development skills including Custom Post Types, REST API integration, secure meta handling, and responsive UI.
 
 ---
 
@@ -60,6 +60,12 @@ Implemented using native WordPress meta boxes with:
 - Date range filtering (Start/End date)
 - Built using WP_Query + meta_query
 - Supports pagination
+---
+
+### 🔍 Custom Templates
+- Home Page Template
+- Blog Page Template
+- Default front-page Template
 ---
 
 ### 📡 REST API Endpoint
