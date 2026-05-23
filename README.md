@@ -18,7 +18,7 @@ A custom WordPress theme built from scratch (based on Underscores starter theme)
 ## 📦 Project Features
 
 ### 🧱 Theme Development
-- Built using Underscores (_s) starter theme
+- Built Wordpress theme from scratch
 - Fully custom WordPress theme structure
 - Proper template hierarchy implementation
 - Enqueued styles and scripts using best practices
@@ -40,10 +40,11 @@ Each Project includes:
 - Start Date
 - End Date
 - Project URL
+- Project Description
 
 Implemented using native WordPress meta boxes with:
 - Nonce protection
-- Capability checks // as in this case we have public api so dont required the Capabilitys check
+- Capability checks
 - Input sanitization
 - Secure data storage
 
@@ -59,7 +60,6 @@ Implemented using native WordPress meta boxes with:
 - Date range filtering (Start/End date)
 - Built using WP_Query + meta_query
 - Supports pagination
-
 ---
 
 ### 📡 REST API Endpoint
@@ -81,7 +81,6 @@ Custom endpoint:
 - Mobile-first layout
 - CSS Grid-based project listing
 - Responsive navigation menu
-
 ---
 
 ### 🔐 Security Implementation
@@ -98,7 +97,6 @@ Custom endpoint:
 
 ---
 
-
 ### What i used to build
 
 ## Custom
@@ -113,7 +111,6 @@ Custom endpoint:
 I only Used the ChatGpt for some errors resolution
 - Language File Structure .mo and .po as i was using portfolio-theme-fr_FR.mo and portfolio-theme-fr_FR.po
 - There was issue with Filteration and then took the help to pre_get_posts for the filter in function.php
-
 
 
 ## 🐳 Local Development Setup (Docker)
