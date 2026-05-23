@@ -46,7 +46,7 @@ class ProjectMeta
         </p>
 
         <p>
-            <label>Project Description</label>
+            <label>Short Description</label>
             <textarea name="project_description"><?php echo esc_textarea($description); ?></textarea>
         </p>
 

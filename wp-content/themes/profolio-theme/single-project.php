@@ -12,13 +12,19 @@
 
     <div class="container">
 
+        <?php if (has_post_thumbnail()) : ?>
+
+            <div class="project-thumbnail">
+                <a href="<?php the_permalink(); ?>">
+                    <?php the_post_thumbnail('full'); ?>
+                </a>
+            </div>
+
+        <?php endif; ?>
+
         <h1><?php echo esc_html(get_the_title()); ?></h1>
 
-        <div class="project-content">
-            <?php the_content(); ?>
-        </div>
-
-        <div class="project-details">
+            <div class="project-details">
 
             <p><strong>Start Date:</strong> <?php echo esc_html($start); ?></p>
             <p><strong>End Date:</strong> <?php echo esc_html($end); ?></p>
@@ -31,6 +37,10 @@
                     </a>
                 </p>
             <?php endif; ?>
+
+             <div class="project-content">
+                <?php the_content(); ?>
+            </div>
 
         </div>
 

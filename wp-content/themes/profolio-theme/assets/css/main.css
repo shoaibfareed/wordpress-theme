@@ -128,9 +128,12 @@
 /* PROJECT IMAGE WRAPPER */
 .project-thumbnail {
     width: 100%;
-    height: 240px;
     overflow: hidden;
     border-radius: 14px 14px 0 0;
+}
+
+.projects-grid .project-thumbnail { 
+    height: 240px;
 }
 
 /* IMAGE */
