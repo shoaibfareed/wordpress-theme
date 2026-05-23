@@ -2,24 +2,19 @@
 
 if (!defined('ABSPATH')) exit;
 
+// Load Composer autoloader
+
+require_once get_template_directory() . '/vendor/autoload.php';
+
+use Profolio\Core\Theme;
+
+Theme::init();
+
+
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('style', get_stylesheet_uri());
 });
 
-
-$inc = get_template_directory() . '/inc/';
-
-foreach ([
-    'setup.php',
-    'cpt-projects.php',
-    'meta-projects.php',
-    'rest-projects.php',
-] as $file) {
-    $path = $inc . $file;
-    if (file_exists($path)) {
-        require_once $path;
-    }
-}
 
 add_action('pre_get_posts', function ($query) {
 
@@ -54,6 +49,7 @@ add_action('pre_get_posts', function ($query) {
 });
 
 
+// filter hooker to sanitize requests input
 add_filter('request', function ($vars) {
 
     if (isset($_GET['start_date'])) {
