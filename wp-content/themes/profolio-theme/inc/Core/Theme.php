@@ -6,6 +6,7 @@ use Profolio\Setup\I18n;
 use Profolio\PostTypes\ProjectCPT;
 use Profolio\Meta\ProjectMeta;
 use Profolio\Rest\ProjectRoutes;
+use Profolio\Assets\AssetManager;
 
 class Theme
 {
@@ -24,11 +25,15 @@ class Theme
 
    public static function boot(): void
     {
-    
-        $cpt = new \Profolio\PostTypes\ProjectCPT();
-    
-        $cpt->register();
+        // Add Support for thumbnail in project
+        add_theme_support('post-thumbnails');
 
+        $cpt = new \Profolio\PostTypes\ProjectCPT();
+        $assets = new \Profolio\Assets\AssetManager();
+        $cpt->register();
+        $assets->register();
+
+    
         new \Profolio\Meta\ProjectMeta();
         new \Profolio\Rest\ProjectRoutes();
     }

@@ -96,7 +96,17 @@
 
                     <article class="project-card">
 
-                        <div class="project-card-inner">
+                        <?php if (has_post_thumbnail()) : ?>
+
+                            <div class="project-thumbnail">
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php the_post_thumbnail('large'); ?>
+                                </a>
+                            </div>
+
+                        <?php endif; ?>
+
+                        <div class="project-content">
 
                             <h2 class="project-title">
                                 <a href="<?php the_permalink(); ?>">
@@ -104,33 +114,24 @@
                                 </a>
                             </h2>
 
-                            <p class="project-excerpt">
-                                <?php echo wp_trim_words(get_the_content(), 18); ?>
-                            </p>
+                            <?php if ($description) : ?>
+                                <p class="project-description">
+                                    <?php echo esc_html(wp_trim_words($description, 20)); ?>
+                                </p>
+                            <?php endif; ?>
 
-                            <div class="project-meta">
+                             <div class="project-meta">
                                 <span>📅 <?php echo esc_html($start); ?> → <?php echo esc_html($end); ?></span>
                             </div>
 
-                            <div class="project-description">
-                                <p>
-                                    <?php echo esc_html( wp_trim_words($description, 20, '...') ); ?>
-                                </p>
-                            </div>
-
-                            <div class="project-actions">
-
-                                <a class="btn-outline" href="<?php the_permalink(); ?>">
-                                    View Details
+                            <?php if ($url) : ?>
+                                <a class="project-link"
+                                href="<?php echo esc_url($url); ?>"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                    Visit Project →
                                 </a>
-
-                                <?php if ($url) : ?>
-                                    <a class="btn-primary" href="<?php echo esc_url($url); ?>" target="_blank">
-                                        Live Demo
-                                    </a>
-                                <?php endif; ?>
-
-                            </div>
+                            <?php endif; ?>
 
                         </div>
 
