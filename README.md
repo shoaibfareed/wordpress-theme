@@ -127,7 +127,7 @@ I only Used the ChatGpt for some errors resolution
 docker compose up -d
 ```
 
-### Composer
+### Composer Setup
 After Setup Run
 
 ```composer dump-autoload``` inside the theme folder to generate the auto load dependencies
