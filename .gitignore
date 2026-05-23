@@ -1,0 +1,24 @@
+# Composer dependencies
+/vendor/
+
+# Node modules (if you add frontend tooling later)
+/node_modules/
+
+# WordPress uploads (NEVER commit media)
+/wp-content/uploads/
+/uploads/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Build files (optional if using build tools)
+/dist/
+/build/
